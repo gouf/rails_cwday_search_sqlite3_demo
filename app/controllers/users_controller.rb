@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def search
     # format a updated_at as cwday(0 to 6)
     # and search by params query
-    @users = User.where(%(strftime('%w', updated_at) like ?), params[:cwday])
+    @users = User.find_by_cwday(params[:cwday])
     render 'users/index'
   end
 
